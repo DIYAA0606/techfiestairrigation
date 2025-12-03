@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F8F3">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- WEATHER CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="#FFFFFF"
+            android:elevation="6dp"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#FFFFFF"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:shape="rectangle">
+
+            <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Location: --"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textColor="#27472F" />
+
+            <TextView
+                android:id="@+id/tvTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Temperature: --°C"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:padding="4dp"
+                android:textColor="#3A5F41" />
+
+            <TextView
+                android:id="@+id/tvHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Humidity: --%"
+                android:textSize="20sp"
+                android:padding="4dp"
+                android:textColor="#3A5F41" />
+
+            <TextView
+                android:id="@+id/tvCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Condition: --"
+                android:textSize="20sp"
+                android:paddingTop="6dp"
+                android:textColor="#3A5F41" />
+        </LinearLayout>
+
+        <!-- ADVICE CARD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="#DFF2E1"
+            android:elevation="6dp"
+            android:backgroundTint="#DFF2E1"
+            android:gravity="center"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvAdvice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Advice will appear here"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#27472F"
+                android:gravity="center"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
