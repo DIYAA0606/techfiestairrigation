@@ -51,6 +51,26 @@
             android:textSize="18sp"
             android:padding="8dp" />
 
+        <TextView
+            android:id="@+id/tvFinalDecision"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Final Decision: --"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"
+            android:textColor="#2E7D32"/>
+
+        <Switch
+            android:id="@+id/switchAutoIrrigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto Irrigation"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:textColor="#1B5E20"/>
+
+
         <!-- Buttons -->
         <Button
             android:id="@+id/btnGoMain"

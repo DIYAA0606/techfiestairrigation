@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Title -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="History"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:paddingBottom="16dp" />
+        android:paddingBottom="8dp"/>
 
+    <!-- GRAPH (FIXED HEIGHT, ALWAYS VISIBLE) -->
+    <com.example.soilmonitormock.MoistureGraphView
+        android:id="@+id/moistureGraph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#E8F5E9"/>
+
+    <!-- LIST BELOW GRAPH -->
     <ListView
         android:id="@+id/listViewHistory"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="8dp"/>
 </LinearLayout>

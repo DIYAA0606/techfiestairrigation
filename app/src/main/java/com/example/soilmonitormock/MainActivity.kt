@@ -1,15 +1,16 @@
 package com.example.soilmonitormock
 
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import android.app.NotificationManager
 import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import android.graphics.Color   // ✅ ADDED IMPORT
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -28,9 +29,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         val btnDashboard = findViewById<Button>(R.id.btnDashboard)
         btnDashboard.setOnClickListener {
-            // Dashboard reads stored prefs so we don't need to pass extras.
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
         }
@@ -55,16 +56,19 @@ class MainActivity : AppCompatActivity() {
         btnGenerate.setOnClickListener {
             val moisture = Random.nextInt(0, 100)
             lastMoisture = moisture
-            // save last moisture + time
+
+            // Save last moisture + time
             val prefs = getSharedPreferences("soil_prefs", MODE_PRIVATE)
             prefs.edit()
                 .putInt("last_moisture", moisture)
                 .putLong("last_moisture_time", System.currentTimeMillis())
                 .apply()
+
             tvMoisture.text = "Moisture: $moisture%"
             historyList.add(moisture)
             saveHistory()
 
+            // Existing UI + notification logic
             updateMoistureStatus(moisture)
             sendMoistureBasedNotification(moisture)
         }
@@ -120,7 +124,6 @@ class MainActivity : AppCompatActivity() {
                     "Soil moisture is critically low. Irrigation required immediately."
                 )
             }
-
             moisture > 85 -> {
                 sendNotification(
                     "High Moisture",
@@ -158,6 +161,22 @@ class MainActivity : AppCompatActivity() {
         if (!savedData.isNullOrEmpty()) {
             historyList.clear()
             historyList.addAll(savedData.split(",").map { it.toInt() })
+        }
+    }
+
+    // ---------------------------------------------------------
+    //   🔥 EXTRA SMART DECISION BLOCK (HACKATHON LOGIC)
+    // ---------------------------------------------------------
+    private fun moistureDecision(moisture: Int): Pair<String, Int> {
+        return when {
+            moisture < 30 ->
+                Pair("Low Moisture – Water Needed.", Color.RED)
+
+            moisture in 30..60 ->
+                Pair("Moderate Moisture – Monitor.", Color.parseColor("#FFA000"))
+
+            else ->
+                Pair("Good Moisture – No Action Needed.", Color.parseColor("#2E7D32"))
         }
     }
 }
