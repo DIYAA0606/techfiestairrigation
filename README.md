@@ -117,13 +117,13 @@ https://openweathermap.org/api
 
 Insert your key in:
 
-private val apiKey = "YOUR_API_KEY"
+private val apiKey = 4415e0577b67054c93de0183d3e7307b
 
 How to Run the Project
 
 Clone the repository
 
-git clone https://github.com/yourusername/yourrepository.git
+git clone https://github.com/DIYAA0606/yourrepository.git
 
 
 Open the folder in Android Studio.
