@@ -117,7 +117,7 @@ https://openweathermap.org/api
 
 Insert your key in:
 
-private val apiKey = 4415e0577b67054c93de0183d3e7307b
+private val apiKey ="YOUR_API_KEY"
 
 How to Run the Project
 
